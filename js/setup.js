@@ -1,9 +1,6 @@
-import {createPicture} from '';
+import {createPicture} from './create-picture.js';
 
 
-// import {} from '';
-
-export {getPictures}
 
 // функция отвечает за генерацию массива объектов
 
@@ -22,5 +19,5 @@ function getPictures() {
 }
 */
 
-checkStringLength('', 140);
-getPictures();
+
+export {getPictures}

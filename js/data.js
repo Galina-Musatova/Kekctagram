@@ -1,8 +1,8 @@
-import {} from '';
 
-export {descriptions}
-export {names}
-export {commentLines}
+
+export {descriptions};
+export {names};
+export {commentLines};
 
 
 

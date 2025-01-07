@@ -1,6 +1,7 @@
 import {getRandomArrayElement} from './util.js';
 import {getRandomPositiveInteger} from './util.js';
 import {createComment} from './create-comment.js';
+import {descriptions} from './data.js';
 
 export {createPicture};
 

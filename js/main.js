@@ -1,11 +1,9 @@
-// import {} from '';
-
-import './setup.js';
-import './create-comment.js';
-import './create-message.js';
-import './create-picture.js';
-import './data.js';
-import './util.js';
 
 
-// import '.';
+import {getPictures} from './setup.js';
+
+getPictures() // генерирует массив изображений
+
+import {renderPictures} from './picture.js';
+
+renderPictures(getPictures()); //создает DOM-элементы на основе массива изображений и складывает их в нужное место в DOM-дереве страницы

@@ -1,4 +1,3 @@
-import {} from '';
 
 export {getRandomPositiveInteger}
 export {checkStringLength}
