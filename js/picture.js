@@ -1,5 +1,7 @@
 // picture.js - это модуль, который отвечает за отрисовку миниатюр.
 
+import {showBigPicture} from './big-picture.js';
+
 // найдем шаблон изображения
 const pictureTemplate = document
   .querySelector('#picture')
@@ -8,17 +10,24 @@ const pictureTemplate = document
 const container = document.querySelector('.pictures');
 
 // создаем клон шаблона и заполняем его  данными
-const createPicture = ({ comments, description, likes, url }) => {
-  // создаем клон шаблона
+const createPicture = (data) => {
+  const { comments, description, likes, url } = data;
+   // создаем клон шаблона
   const picture = pictureTemplate.cloneNode(true);
 // заполняем его  данными
   picture.querySelector('.picture__img').src = url;
   picture.querySelector('.picture__img').alt = description;
   picture.querySelector('.picture__comments').textContent = comments.length;
   picture.querySelector('.picture__likes').textContent = likes;
+// обработчик по клику
+  picture.addEventListener('click', () => {
+    showBigPicture(data);
+  });
 // возвращаем изображение
   return picture;
 };
+
+
 // главная функция, получает массив и все делает
 const renderPictures = (pictures) => {
   const fragment = document.createDocumentFragment(); // добавляем фрагмент
