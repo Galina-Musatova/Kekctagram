@@ -1,7 +1,7 @@
 // picture.js - это модуль, который отвечает за отрисовку миниатюр.
 
 import {showBigPicture} from './big-picture.js';
-
+import './working-with-form.js';
 // найдем шаблон изображения
 const pictureTemplate = document
   .querySelector('#picture')
@@ -40,3 +40,4 @@ const renderPictures = (pictures) => {
 };
 
 export { renderPictures };
+import './form.js';

@@ -5,7 +5,6 @@ export {names};
 export {commentLines};
 
 
-
 // description, строка — описание фотографии. Описание придумайте самостоятельно.
 
 const descriptions = [

@@ -1,3 +1,5 @@
+import './working-with-form.js'
+
 const bigPicture = document.querySelector('.big-picture'); // блок с изображениями
 const commentCount = document.querySelector('.social__comment-count'); // комментарии к изображению
 const commentList = document.querySelector('.social__comments'); // список комментариев на одном изображении
@@ -43,7 +45,7 @@ const hideBigPicture = () => {
 // закрытие большого окна при нажатии Esc
 function onEscKeyDown(evt) {
   if (evt.key === 'Escape') {
-    evt.preventDefault();
+   evt.preventDefault();
     hideBigPicture();
   }
 }
@@ -76,3 +78,5 @@ cancelButton.addEventListener('click', onCancelButtonClick); // закрывае
 
 
 export {showBigPicture};
+export {onEscKeyDown}
+

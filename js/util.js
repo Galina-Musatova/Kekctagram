@@ -2,7 +2,7 @@
 export {getRandomPositiveInteger}
 export {checkStringLength}
 export {getRandomArrayElement}
-
+export {onEscKeyDown}
 
 
 // Функция getRandomPositiveInteger, возвращающая случайное целое число из переданного диапазона включительно:
@@ -24,3 +24,12 @@ const getRandomArrayElement = (array) =>
 
 
 checkStringLength('', 140);
+
+// закрытие большого окна при нажатии Esc
+function onEscKeyDown(evt) {
+  if (evt.key === 'Escape') {
+    evt.preventDefault();
+    hideBigPicture();
+  }
+}
+
