@@ -6,6 +6,16 @@ const commentList = document.querySelector('.social__comments'); // список
 const commentsLoader = document.querySelector('.comments-loader'); // Кнопка для загрузки новой порции комментариев
 const body = document.querySelector('body');
 const cancelButton = document.querySelector('.big-picture__cancel'); //Кнопка для выхода из полноэкранного просмотра изображения
+const loadMoreButton = document.querySelector('.social__comments-loader') // кнопка Загрузить еще
+// Покажите блоки счётчика комментариев .social__comment-count и загрузки новых комментариев .comments-loader, убрав у них класс hidden.
+
+commentCount.classList.remove('hidden')
+commentsLoader.classList.remove('hidden')
+// блок выше надо доработать
+
+let currentIndex = 0; // Индекс для отслеживания текущего элемента
+const itemsPerPage = 5; // Количество комментариев для отображения за раз
+
 
 // заполняем картинку данными аватара и сообщениями
 const createComment = ({ avatar, name, message }) => {
@@ -27,13 +37,25 @@ const renderComments = (comments) => {
 
 // создаем фрагмент, куда будут помещаться комментарии к изображению и заполняем его случайными комменттариями:
   const fragment = document.createDocumentFragment();
-  comments.forEach((comment) => { // проходим по массиву комментариев
+  const slice = comments.slice(currentIndex, currentIndex + itemsPerPage); // Берем часть комментариев
+  slice.forEach((comment) => { // проходим по массиву комментариев
     const commentElement = createComment(comment); // генерируем случайный комментарий
     fragment.append(commentElement); // добавляем комментарий во фрагмент
   });
 
   commentList.append(fragment); // вставляем фрагмент вместо удаленных комментариев
+currentIndex += itemsPerPage; // Обновляем индекс для следующего отображения
+if (currentIndex >= comments.length) {
+  loadMoreButton.style.display = 'none'; // Скрываем кнопку, если комментариев больше нет
+}
 };
+
+// Обработчик для кнопки "Загрузить ещё"
+loadMoreButton.addEventListener('click', () => renderComments(data.comments));
+
+// Изначально отображаем первые 5 комментариев
+//***renderComments(data.comments);
+
 
 // закрывает большое окно двумя способами: по нажатию клавиши Esc и по клику по иконке закрытия Х
 const hideBigPicture = () => {
@@ -80,3 +102,8 @@ cancelButton.addEventListener('click', onCancelButtonClick); // закрывае
 export {showBigPicture};
 export {onEscKeyDown}
 
+// В модуле, который отвечает за отрисовку окна с полноразмерным изображением,
+// доработайте код по выводу списка комментариев таким образом, чтобы список показывался не полностью,
+// а по 5 элементов, и следующие 5 элементов добавлялись бы по нажатию на кнопку «Загрузить ещё».
+// Не забудьте реализовать обновление числа показанных комментариев в блоке .social__comment-count.
+// это не сделано!

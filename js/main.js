@@ -10,3 +10,12 @@ renderPictures(getPictures()); //создает DOM-элементы на осн
 
 import './big-picture.js'
 import './working-with-form.js';
+
+
+
+
+
+
+
+
+

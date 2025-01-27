@@ -19,7 +19,6 @@ const pristine = new Pristine(imgUploadForm, {
   errorTextClass: 'img-upload__error', // Класс для элемента с текстом ошибки
 });
 
-
 // открываем поле для загрузки изображения. поле для формы редактирования изображения
 const showModal = () => {
   // удаляем класс hidden у элемента .img-upload__overlay
@@ -115,3 +114,5 @@ const onFormSubmit = (evt) => {
 fileField.addEventListener('change', onFileInputChange);
 cancelButton.addEventListener('click', onCancelButtonClick);
 imgUploadForm.addEventListener('submit', onFormSubmit);
+
+

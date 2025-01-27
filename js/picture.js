@@ -39,5 +39,5 @@ const renderPictures = (pictures) => {
   container.append(fragment); // добавляем фрагмент в контейнер
 };
 
-export { renderPictures };
-import './form.js';
+export {renderPictures};
+
