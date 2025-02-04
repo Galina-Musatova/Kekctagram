@@ -1,3 +1,6 @@
+import { resetScale } from './scale.js';
+import { resetEffects } from './effect.js';
+
 const imgUploadForm = document.querySelector('.img-upload__form');
 const imgUploadOverlay = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
@@ -34,6 +37,8 @@ body.classList.add('modal-open')
 const hideModal = () => {
   // сбросим значение поля #upload-file, для этого, можно сбросить всю форму .img-upload__form с помощью метода .reset()
   imgUploadForm.reset();
+  resetEffects();
+  resetScale();
   pristine.reset();
   // добавляем класс hidden у элемента .img-upload__overlay
 imgUploadOverlay.classList.add('hidden')
@@ -114,5 +119,6 @@ const onFormSubmit = (evt) => {
 fileField.addEventListener('change', onFileInputChange);
 cancelButton.addEventListener('click', onCancelButtonClick);
 imgUploadForm.addEventListener('submit', onFormSubmit);
+
 
 
