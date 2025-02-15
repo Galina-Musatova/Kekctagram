@@ -107,7 +107,8 @@ const resetEffects = () => {
 };
 
 // можно создать уже сам слайдер. В самом начале, достаточно будет параметров для эффекта none (Оригинал)
-noUiSlider.create(sliderElement, { // создаем слайдер на элемент sliderElement с помощью noUiSlider и настройками
+// // создаем слайдер на элемент sliderElement с помощью noUiSlider и настройками
+noUiSlider.create(sliderElement, {
   range: { // ползунок
     min: DEFAULT_EFFECT.min,
     max: DEFAULT_EFFECT.max,

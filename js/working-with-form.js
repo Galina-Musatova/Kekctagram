@@ -43,7 +43,7 @@ const hideModal = () => {
   // добавляем класс hidden у элемента .img-upload__overlay
 imgUploadOverlay.classList.add('hidden')
   // у тега body удаляем класс modal-open
-body.classList.removed('modal-open')
+body.classList.remove('modal-open')
   // удаляем обработчик отслеживания нажатия клавиши Esc
   document.removeEventListener('keydown', onEscKeyDown);
 };
@@ -70,10 +70,10 @@ const onFileInputChange = () => {
 
 ///// 1
 
-const startsWithHash = (string) => string[0] === '#';
+const startsWithHash = (string) => string[0] === '#'; // первый знак в хэштеге #
 
 const hasValidLength = (string) =>
-  string.length >= MIN_HASHTAG_LENGTH && string.length <= MAX_HASHTAG_LENGTH;
+  string.length >= MIN_HASHTAG_LENGTH && string.length <= MAX_HASHTAG_LENGTH; //длина строки хэштега
 
 const hasValidSymbols = (string) => !UNVALID_SYMBOLS.test(string.slice(1));
 
@@ -95,15 +95,15 @@ const hasUniqueTags = (tags) => {
 const validateTags = (value) => {
   // проверка значения поля на соответствие требований ТЗ
   // // функция должна вернуть true либо false
-
   const tags = value
   .trim()
   .split(' ')
   .filter((tag) => tag.trim().length);
-return hasValidCount(tags) && hasUniqueTags(tags) && tags.every(isValidTag);
+// Проверяем валидность тегов и количество
+  return hasValidCount(tags) && hasUniqueTags(tags) && tags.every(isValidTag);
 };
 
-
+// Добавляем валидатор к полю ввода
 pristine.addValidator(
   hashtagField,
   validateTags,

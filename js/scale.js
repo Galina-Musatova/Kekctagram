@@ -26,7 +26,7 @@ const onSmallerButtonClick = () => {
 const onBiggerButtonClick = () => {
   const currentValue = parseInt(scaleInput.value, 10); // Получить текущее значение,преобраз строку в число (значение из поля, 10- система счисления)
   let newValue = currentValue + SCALE_STEP; // Вычислить новое значение
-  if (newValue > MAX_SCALE) { //если новое значение < мин
+  if (newValue >= MAX_SCALE) { //если новое значение > мин
     newValue = MAX_SCALE;  // то оно записывается в мин
   }
   scaleImage(newValue); //масштабирование нового значения

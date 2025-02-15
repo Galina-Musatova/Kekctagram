@@ -2,6 +2,10 @@
 
 import {showBigPicture} from './big-picture.js';
 import './working-with-form.js';
+import {getData} from './api.js';
+
+
+
 // найдем шаблон изображения
 const pictureTemplate = document
   .querySelector('#picture')
@@ -39,5 +43,15 @@ const renderPictures = (pictures) => {
   container.append(fragment); // добавляем фрагмент в контейнер
 };
 
-export {renderPictures};
+//export {renderPictures};
 
+const onLoadSuccess = (data) => {
+  renderPictures(data);
+}
+
+const onLoadError = (error) => {
+  // показать ошибку
+  console.error(error)
+}
+
+getData(onLoadSuccess, onLoadError);
