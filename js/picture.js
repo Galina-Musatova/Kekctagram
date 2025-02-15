@@ -43,8 +43,12 @@ const renderPictures = (pictures) => {
   container.append(fragment); // добавляем фрагмент в контейнер
 };
 
-//export {renderPictures};
+export {renderPictures};
 
+
+
+
+// откуда взялось следущее?
 const onLoadSuccess = (data) => {
   renderPictures(data);
 }
